@@ -1,0 +1,36 @@
+<h1>Listing articulos</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Abstract</th>
+    <th>Description</th>
+    <th>Fecha</th>
+    <th>Precio</th>
+    <th>Calificacion</th>
+    <th>Foto</th>
+    <th>Usuario</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articulos.each do |articulo| %>
+  <tr>
+    <td><%= articulo.titulo %></td>
+    <td><%= articulo.abstract %></td>
+    <td><%= articulo.description %></td>
+    <td><%= articulo.fecha %></td>
+    <td><%= articulo.precio %></td>
+    <td><%= articulo.calificacion %></td>
+    <td><%= articulo.foto %></td>
+    <td><%= articulo.user.name %></td>
+    <td><%= link_to 'Show', articulo %></td>
+    <td><%= link_to 'Edit', edit_articulo_path(articulo) %></td>
+    <td><%= link_to 'Destroy', articulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Articulo', new_articulo_path %>

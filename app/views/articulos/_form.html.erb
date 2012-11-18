@@ -1,0 +1,46 @@
+<%= form_for(@articulo) do |f| %>
+  <% if @articulo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@articulo.errors.count, "error") %> prohibited this articulo from being saved:</h2>
+
+      <ul>
+      <% @articulo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :abstract %><br />
+    <%= f.text_field :abstract %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :precio %><br />
+    <%= f.number_field :precio %>
+  </div>
+  <div class="field">
+    <%= f.label :calificacion %><br />
+    <%= f.number_field :calificacion %>
+  </div>
+  <div class="field">
+    <%= f.label :foto %><br />
+    <%= f.text_field :foto %>
+  </div>
+   <%= f.collection_select :user_id, User.all, :id, :name %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
