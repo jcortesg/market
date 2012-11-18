@@ -39,7 +39,14 @@
     <%= f.label :foto %><br />
     <%= f.text_field :foto %>
   </div>
+
    <%= f.collection_select :user_id, User.all, :id, :name %>
+ <br>etiquetas <br>
+<%= f.fields_for :keyword do |p| %>
+  <%=p.text_field :keyword %>
+<% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
